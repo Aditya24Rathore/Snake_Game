@@ -1,18 +1,39 @@
 #include "snake.h"
 
 Snake::Snake(int startX, int startY) {
-  body.push_back({startX, startY});
-  dir = STOP;
+    body.push_back({startX, startY});
+    dir = STOP;
 }
 
 void Snake::setDirection(Direction d) {
   
-  ////Prevent opposite direction movements
-  if((dir == LEFT && d == RIGHT)  ||
-      (dir == RIGHT && d == LEFT) ||
-      (dir == UP && d == DOWN)  ||
-      (dir == DOWN && d == UP))
-      return;
+    ////Prevent opposite direction movements
+    if((dir == LEFT && d == RIGHT)  ||
+        (dir == RIGHT && d == LEFT) ||
+        (dir == UP && d == DOWN)  ||
+        (dir == DOWN && d == UP))
+        return;
 
-  dir = d;
+    dir = d;
+}
+
+Direction Snake::getDirection() const {
+    return dir;
+}
+
+void Snake::move() {
+    if(dir == STOP) return;
+
+    pair<int, int> head = body.front();
+
+    switch (dir) {
+        case LEFT: head.first--; break;
+        case RIGHT: head.first++; break;
+        case UP: head.second--; break;
+        case DOWN: head.second++; break;
+        default: break;
+    }
+
+    body.push_front(head);
+    body.pop_back();
 }
