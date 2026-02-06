@@ -37,3 +37,16 @@ void Snake::move() {
     body.push_front(head);
     body.pop_back();
 }
+
+void Snake::grow() {
+    //// Add a new segment at the tail (duplicate last)
+    body.push_back(body.back());
+}
+
+pair<int, int> Snake::getHead() const {
+    return body.front();
+}
+
+const deque<pair<int, int>>& Snake::getBody() const {
+    return body;
+}
