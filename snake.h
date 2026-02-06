@@ -16,7 +16,14 @@ class Snake {
   public:
       Snake(int startX, int startY);
 
-      void
+      void setDirection(Direction d);
+      Direction getDirection() const;
+
+      void move();
+      void grow();
+
+      pair<int, int> getHead() const;
+      const deque<pair<int, int>>& getBody() const;
 };
 
 #endif
