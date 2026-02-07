@@ -43,7 +43,7 @@ void Game::update() {
     
     //// Self collision
     const auto& body = snake.getBody();
-    for(int i = 1; body.size(); i++) {
+    for(int i = 1; i < body.size(); i++) {
       if(body[i] == head) {
         gameOver = true;
         break;
