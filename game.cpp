@@ -30,3 +30,31 @@ void Game::input() {
     }
 }
 
+void Game::update() {
+    snake.move();
+
+    auto head = snake.getHead();
+
+    //// Wall collision
+    if(head.first <=0 || head.first >= width - 1 ||
+        head.second <=0 || head.second >=height - 1) {
+          gameOver = true;
+        }
+    
+    //// Self collision
+    const auto& body = snake.getBody();
+    for(int i = 1; body.size(); i++) {
+      if(body[i] == head) {
+        gameOver = true;
+        break;
+      }
+    }
+
+    //// Food collision
+    if(head == food.getPosition()) {
+      score += 10;
+      snake.grow();
+      food.spawn(width, height, snake.getBody());
+    }
+}
+
