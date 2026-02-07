@@ -1,4 +1,4 @@
-#include "snake.h"
+#include "Snake.h"
 
 //// Constructor: initializes the snake at a starting position
 Snake::Snake(int startX, int startY) {

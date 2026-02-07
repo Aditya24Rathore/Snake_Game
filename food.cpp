@@ -1,4 +1,4 @@
-#include "food.h"
+#include "Food.h"
 #include  <cstdlib> //// for rand(), srand()
 #include <ctime>  //// for time()
 

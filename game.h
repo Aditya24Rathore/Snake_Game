@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "snake.h"
-#include "food.h"
+#include "Snake.h"
+#include "Food.h"
 
 //// Main game controller class
 class Game {
