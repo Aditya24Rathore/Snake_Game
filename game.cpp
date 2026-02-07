@@ -108,3 +108,15 @@ void Game::render() {
     cout << "Controls: W A S D | X to Quit" <<endl;
 }
 
+void Game::run() {
+  while (!gameOver) {
+    input();
+    update();
+    render();
+    Sleep(100); ////speed control
+  }
+
+  system("cls");
+  cout << "GAME OVER 💀" << endl;
+  cout << "Final Score: " << score << endl;
+}
