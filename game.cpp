@@ -58,3 +58,53 @@ void Game::update() {
     }
 }
 
+void Game::render() {
+    system("cls");
+
+    ////Top Wall
+    for(int i = 0; i <  width + 2; i++)
+        cout << "#";
+    cout << endl;
+
+    //// Side walls + content
+    for(int y = 0; y < height; y++) {
+      for(int x = 0; x < width; x++) {
+
+        if(x == 0)
+          cout << "#";
+        
+        bool printed = false;
+
+        ////snake
+        for(const auto& segment :  snake.getBody()) {
+            if(segment.first == x && segment.second == y) {
+                cout << "O";
+                printed = true;
+                break;
+            }
+        }
+
+        ////Food
+        if(!printed && food.getPosition().first  == x
+                    && food.getPosition().second == y) {
+                      cout << "F";
+                      printed = true;
+                    }
+
+                    if(!printed)
+                      cout << " ";
+
+                    if(x == width - 1)
+                      cout << "#";
+      }
+      cout << endl;
+    }
+    //// Bottom wall
+    for(int i = 0; i < width + 2; i++)
+        cout << "#";
+    cout << endl;
+
+    cout << "Score: " <<score << endl;
+    cout << "Controls: W A S D | X to Quit" <<endl;
+}
+
