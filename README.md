@@ -4,6 +4,10 @@ A **console-based Snake Game** developed using **C++**, following **Object-Orien
 
 ---
 
+![Snake_game Image](images/snake_game.png)
+
+---
+
 ## 📜 LICENSE
 This project is licensed under the MIT License.
 
